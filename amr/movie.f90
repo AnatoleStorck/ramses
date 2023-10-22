@@ -101,6 +101,12 @@ subroutine output_frame()
  ! Only one projection available in 2D
  if((ndim.eq.2).and.(trim(proj_axis).ne.'z')) proj_axis = 'z'
 
+ ! Can only provide one center when centering on particles, so
+ ! better doing it *before* any loops
+ if(center_on_particles) then
+   call compute_frame_center_from_particles(xcen, ycen, zcen)
+ end if
+
  ! Loop over projections
  do proj_ind=1,LEN(trim(proj_axis))
     
@@ -1167,3 +1173,110 @@ subroutine set_movie_vars()
   end do
 
 end subroutine set_movie_vars
+
+subroutine compute_frame_center_from_particles(xcentre, ycentre, zcentre)
+   use amr_commons, only: dp, ndim, myid
+   use amr_parameters, only: i8b, center_on_particles_file, boxlen, movie_particle_ids
+   use pm_commons, only: xp, mp, idp, typep, part_t, npartmax
+   use mpi_mod
+
+   use particle_snapshot, only: read_particle_ids, binary_search
+   implicit none
+
+   real(dp), intent(out) :: xcentre, ycentre, zcentre
+
+   integer :: ipart, index, idim
+   integer, save :: particle_type, n
+
+   logical :: ok
+
+   real(dp), dimension(1:ndim) :: xx, xx_first, xx_all
+   real(dp), dimension(:, :), allocatable :: xx_found, xx_found_all
+   real(dp), dimension(:), allocatable :: m_found_all, m_found
+   real(dp) :: m_tot
+#ifndef WITHOUTMPI
+   integer :: ierr
+#endif
+
+   if (.not. allocated(movie_particle_ids)) then
+      call read_particle_ids(center_on_particles_file, n, movie_particle_ids, particle_type)
+   end if
+
+   allocate(xx_found(1:n, 1:ndim), xx_found_all(1:n, 1:ndim))
+   allocate(m_found(1:n), m_found_all(1:n))
+   xx_found(:, :) = 0
+   xx_found_all(:, :) = 0
+   m_found(:) = 0
+   m_found_all(:) = 0
+
+   ! Could be optimized by using the linked list   
+   do ipart = 1, npartmax
+      if (typep(ipart)%family == particle_type) then
+         index = binary_search(idp(ipart), movie_particle_ids, n)
+         if (index > 0) then
+            xx_found(index, :) = xp(ipart, :)
+            m_found(index) = mp(ipart)
+         end if
+      end if
+   end do
+
+#ifndef WITHOUTMPI
+   call MPI_ALLREDUCE(xx_found, xx_found_all, n*ndim, MPI_DOUBLE_PRECISION, MPI_SUM, MPI_COMM_WORLD, ierr)
+   call MPI_ALLREDUCE(m_found, m_found_all, n, MPI_DOUBLE_PRECISION, MPI_SUM, MPI_COMM_WORLD, ierr)
+#else
+   xx_found_all(:, :) = xx_found(:, :)
+   m_found_all(:) = m_found(:)
+#endif
+
+   ok = .false.
+   do ipart = 1, n
+      if (any(xx_found_all(ipart, :) /= 0)) then
+         ok = .true.
+         exit
+      end if
+   end do
+   if (.not. ok) then
+      if (myid == 1) write(*, *) "WARNING: No particle from selection found. Centering the movie on center of box"
+      xcentre = boxlen / 2
+      ycentre = boxlen / 2
+      zcentre = boxlen / 2
+      return
+   end if
+
+   ! Find center of mass with respect to first non-null particle
+   m_tot = 0
+   xx_all(:) = 0
+   do ipart = 1, n
+      if (any(xx_found_all(ipart, :) > 0)) then
+         if (m_tot == 0) then
+            xx_first(:) = xx_found_all(ipart, :)
+         else
+            do idim = 1, ndim
+               if (xx_found_all(ipart, idim) - xx_first(idim) > boxlen/2) then
+                  xx_found_all(ipart, idim) = xx_found_all(ipart, idim) - boxlen
+               else if (xx_found_all(ipart, idim) - xx_first(idim) < -boxlen/2) then
+                  xx_found_all(ipart, idim) = xx_found_all(ipart, idim) + boxlen
+               end if
+               xx_all(idim) = xx_all(idim) + (xx_found_all(ipart, idim) - xx_first(idim)) * m_found_all(ipart)
+            end do
+         end if
+         m_tot = m_tot + m_found_all(ipart)
+      end if
+   end do
+
+   xx_all(:) = xx_all(:) / m_tot + xx_first(:)
+
+   ! Take into account periodic boundaries
+   do idim = 1, ndim
+      if (xx_all(idim) > boxlen) then
+         xx_all(idim) = xx_all(idim) - boxlen
+      else if (xx_all(idim) < 0) then
+         xx_all(idim) = xx_all(idim) + boxlen
+      end if
+   end do
+
+   xcentre = xx_all(1)
+   if (ndim > 1) ycentre = xx_all(2)
+   if (ndim > 2) zcentre = xx_all(3)
+
+end subroutine compute_frame_center_from_particles

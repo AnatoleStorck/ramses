@@ -66,7 +66,8 @@ subroutine read_params
        & ,imovout,imov,tstartmov,astartmov,tendmov,aendmov,proj_axis,movie_vars_txt &
        & ,theta_camera,phi_camera,dtheta_camera,dphi_camera,focal_camera,dist_camera,ddist_camera &
        & ,perspective_camera,smooth_frame,shader_frame,tstart_theta_camera,tstart_phi_camera &
-       & ,tend_theta_camera,tend_phi_camera,method_frame,varmin_frame,varmax_frame
+       & ,tend_theta_camera,tend_phi_camera,method_frame,varmin_frame,varmax_frame &
+       & ,center_on_particles,center_on_particles_file
   namelist/tracer_params/MC_tracer,tracer_feed,tracer_feed_fmt &
        & ,tracer_mass,tracer_first_balance_part_per_cell &
        & ,tracer_first_balance_levelmin
@@ -469,6 +470,18 @@ subroutine read_params
      if(myid==1)write(*,*)'Aborting...'
      call clean_stop
   end if
+
+  if (center_on_particles .and. trim(center_on_particles_file) == "") then
+   if(myid==1)write(*,*)'You need to specify a file containing particle ids (`center_on_particles_file`) when centering a movie on a set of particles'
+   call clean_stop
+end if
+
+if (center_on_particles .and. (any(xcentre_frame /= 0) .or. any(ycentre_frame /= 0) .or. any(zcentre_frame /= 0))) then
+   if(myid==1)write(*,*)'WARNING: the parameters {xyz}centre_frame will be ignored as center_on_particles is set to .true.'
+   xcentre_frame = 0
+   ycentre_frame = 0
+   zcentre_frame = 0
+end if
 
 #ifndef WITHOUTMPI
   call MPI_BARRIER(MPI_COMM_WORLD,ierr)
