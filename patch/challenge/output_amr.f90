@@ -12,7 +12,7 @@ subroutine dump_all
   include 'mpif.h'
 #endif
   character(LEN=5)::nchar,ncharcpu
-  character(LEN=80)::filename,filedir,filedirini,filecmd
+  character(LEN=255)::filename,filedir,filedirini,filecmd
   integer::i,itest,info
 
   if(nstep_coarse==nstep_coarse_old.and.nstep_coarse>0)return
@@ -162,7 +162,7 @@ subroutine backup_amr(filename)
 #ifndef WITHOUTMPI
   include 'mpif.h'
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::nx_loc,ny_loc,nz_loc,ilun
   integer::ilevel,ibound,ncache,istart,i,igrid,idim,ind,iskip
@@ -170,7 +170,7 @@ subroutine backup_amr(filename)
   real(dp),allocatable,dimension(:)::xdp
   real(sp),allocatable,dimension(:)::xsp
   real(dp),dimension(1:3)::skip_loc
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v
   real(dp)::scale
@@ -360,12 +360,12 @@ subroutine output_info(filename)
   use hydro_commons
   use pm_commons
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::nx_loc,ny_loc,nz_loc,ilun,icpu,idom
   real(dp)::scale
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
 
   if(verbose)write(*,*)'Entering output_info'
@@ -440,10 +440,10 @@ subroutine output_header(filename)
 #ifndef WITHOUTMPI
   include 'mpif.h'
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::info,npart_tot,ilun
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 
   if(verbose)write(*,*)'Entering output_header'
 
@@ -503,7 +503,7 @@ subroutine savegadget(filename)
 #ifndef WITHOUTMPI
   include 'mpif.h'
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   TYPE (gadgetheadertype) :: header
   real,allocatable,dimension(:,:)::pos, vel
   integer,allocatable,dimension(:)::ids

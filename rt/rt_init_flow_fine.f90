@@ -54,7 +54,7 @@ subroutine rt_init_flow_fine(ilevel)
   real(kind=4),allocatable,dimension(:,:)  ::init_plane
 
   logical::error,ok_file1,ok_file2,ok_file3,ok_file
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   character(LEN=5)::ncharvar
  integer,parameter::tag=1129
 

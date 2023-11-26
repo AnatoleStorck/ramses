@@ -20,10 +20,10 @@ program spg
   real::dx,x1off,x2off,x3off
   real::astart,omegam,omegav,h0
   real::zstart
-  character(len=80)::filegraf,fname,fdir,input,output,ncpu_string,commande,fcurr
+  character(LEN=255)::filegraf,fname,fdir,input,output,ncpu_string,commande,fcurr
   character(len=5)::extnum
-  character(len=80)::debug_string
-  character(len=80),dimension(14)::filename
+  character(LEN=255)::debug_string
+  character(LEN=255),dimension(14)::filename
   logical::verbose=.false.,yorick=.false.
   integer,dimension(:),allocatable::open_flag,open_line
   integer::ncoarse,ncpu,debug
@@ -440,7 +440,7 @@ subroutine read_grafic_header
   integer::np1,np2,np3
   real::dx,x1off,x2off,x3off
   real::astart,omegam,omegav,h0
-  character(len=80)::filegraf
+  character(LEN=255)::filegraf
 
   common /graficparam/np1,np2,np3,dx,x1off,x2off,x3off,astart,omegam,omegav,h0
   common /ioparam/filegraf

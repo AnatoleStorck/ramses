@@ -15,7 +15,7 @@ subroutine init_hydro
   integer ,dimension(:),allocatable::ind_grid
   real(dp),dimension(:),allocatable::xx
   real(dp)::gamma2
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar,ncharcpu
   integer,parameter::tag=1108
 #if NENER>0

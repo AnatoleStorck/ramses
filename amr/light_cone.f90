@@ -19,7 +19,7 @@ subroutine output_cone()
   character(len=100) :: conedir, conecmd, conefile
 
   integer::ilun,ipout,npout,npart_out
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
   real(kind=8),dimension(1:3,1:nvector),save::pos,vel,var
   real(kind=8),dimension(:,:),allocatable::posout,velout,varout

@@ -30,8 +30,8 @@ EOF
 
 cat << EOF > .test_before.f90
 subroutine output_patch(filename)
-  character(LEN=80)::filename
-  character(LEN=80)::fileloc
+  character(LEN=255)::filename
+  character(LEN=255)::fileloc
   character(LEN=30)::format
   integer::ilun
 

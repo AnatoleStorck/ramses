@@ -274,7 +274,7 @@ subroutine write_clump_properties(to_file)
 
   integer::i,j,jj,ilun,ilun2,n_rel,n_rel_tot,nx_loc
   real(dp)::rel_mass,rel_mass_tot,scale,particle_mass=0
-  character(LEN=80)::fileloc,filedir
+  character(LEN=255)::fileloc,filedir
   character(LEN=5)::nchar,ncharcpu
   real(dp),dimension(1:npeaks)::peakd
   integer,dimension(1:npeaks)::ind_sort

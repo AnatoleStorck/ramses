@@ -328,7 +328,7 @@ end subroutine set_table
 subroutine output_cool(filename)
 !=======================================================================
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   open(unit=10,file=filename,form='unformatted')
   write(10)table%n1,table%n2
   write(10)table%nH

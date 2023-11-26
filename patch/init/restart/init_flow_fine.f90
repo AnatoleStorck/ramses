@@ -59,13 +59,13 @@ subroutine init_flow_fine(ilevel)
   real(kind=4),allocatable,dimension(:,:)  ::init_plane
 
   logical::error,ok_file1,ok_file2,ok_file3,ok_file
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   character(LEN=5)::nchar,ncharvar
 
   ! Restart patch
   logical,save::init_restart_nml=.false.
   logical::nml_ok=.true.
-  character(LEN=80)::infile
+  character(LEN=255)::infile
   logical::file_exists
   ! Namelist definitions
   namelist/restart_params/IG_rho,IG_T2,IG_metal,ic_center,restart_vars

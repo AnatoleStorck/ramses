@@ -12,7 +12,7 @@ subroutine init_hydro
   integer ,dimension(:),allocatable::ind_grid
   real(dp),dimension(:),allocatable::xx
   real(dp)::gamma2
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar,ncharcpu
   real(dp)::dtot,ekin,erad
   real(dp),dimension(1:nvector,1:nmat),save::ff,gg,kk_mat

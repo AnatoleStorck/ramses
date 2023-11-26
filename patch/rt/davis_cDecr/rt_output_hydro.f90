@@ -10,13 +10,13 @@ SUBROUTINE rt_backup_hydro(filename)
   use rt_hydro_commons
   use rt_parameters
   implicit none
-  character(LEN=80)::filename,filedir,rt_filename
+  character(LEN=255)::filename,filedir,rt_filename
 
   integer::i,ivar,idim,ncache,ind,ilevel,igrid,iskip,ilun,istart,ibound
   integer,allocatable,dimension(:)::ind_grid
   real(dp),allocatable,dimension(:)::xdp
   character(LEN=5)::nchar
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 !------------------------------------------------------------------------
   if(verbose)write(*,*)'Entering backup_rt'
 
@@ -95,10 +95,10 @@ SUBROUTINE output_rtInfo(filename)
   use rt_parameters
   use rt_cooling_module
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   integer::ilun
   real(dp)::scale_np,scale_pf
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 !------------------------------------------------------------------------
   if(verbose)write(*,*)'Entering output_rtInfo'
 

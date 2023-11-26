@@ -2,14 +2,14 @@ subroutine backup_hydro(filename)
   use amr_commons
   use hydro_commons
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::i,ivar,ncache,ind,ilevel,igrid,iskip,ilun,istart,ibound
   integer,allocatable,dimension(:)::ind_grid
   real(dp),allocatable,dimension(:)::xdp
   real(dp),allocatable,dimension(:,:)::qq ! primitive variables
   character(LEN=5)::nchar
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   integer::k,ncell
   real(dp) :: lor,entho ! Lorentz factor
   real(dp) :: D,M,E,Mx,My,Mz,u2,Xsi,R

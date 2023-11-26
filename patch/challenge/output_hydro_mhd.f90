@@ -5,14 +5,14 @@ subroutine backup_hydro(filename)
 #ifndef WITHOUTMPI
   include 'mpif.h'
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::i,ivar,ncache,ind,ilevel,igrid,iskip,ilun,istart,ibound
   real(dp)::d,u,v,w,A,B,C,e
   integer,allocatable,dimension(:)::ind_grid
   real(dp),allocatable,dimension(:)::xdp
   character(LEN=5)::nchar
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   integer,parameter::tag=1114
   integer::dummy_io,info
 

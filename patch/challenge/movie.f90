@@ -21,7 +21,7 @@ subroutine output_frame()
   integer::icell,ncache,iskip,ngrid,nlevelmax_frame
   integer::ilun,nx_loc,ipout,npout,npart_out,ind,ix,iy,iz
   integer::imin,imax,jmin,jmax,ii,jj
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
   real(dp)::scale,scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v
   real(dp)::xcen,ycen,zcen,delx,dely,delz

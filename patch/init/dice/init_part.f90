@@ -53,8 +53,8 @@
   integer,parameter::tagg=1109,tagg2=1110,tagg3=1111
 #endif
   logical::error,keep_part,eof,read_pos=.false.,ok,read_ids=.false.
-  character(LEN=80)::filename,filename_x, filename_id
-  character(LEN=80)::fileloc
+  character(LEN=255)::filename,filename_x, filename_id
+  character(LEN=255)::fileloc
   character(LEN=20)::filetype_loc
   character(LEN=5)::nchar,ncharcpu
 

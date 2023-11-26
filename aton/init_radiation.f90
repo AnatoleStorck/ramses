@@ -12,7 +12,7 @@ subroutine init_radiation
   integer ,dimension(:),allocatable::ind_grid
   real(dp),dimension(:),allocatable::xx
   real(dp)::gamma2
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar,ncharcpu
   integer,parameter::tag=1115
   integer::dummy_io,info2

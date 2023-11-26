@@ -13,7 +13,7 @@ program poshalo
   real(KIND=8),dimension(:),allocatable::m,age
   integer,dimension(:),allocatable::id
   character(LEN=5)::nstring,ncharcpu
-  character(LEN=80)::directory,file_groupe_in
+  character(LEN=255)::directory,file_groupe_in
   character(LEN=128)::nomfich,repository
   logical::ok
 

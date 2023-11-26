@@ -55,7 +55,7 @@ subroutine star_formation(ilevel)
 
   logical ,dimension(1:nvector),save::ok,ok_new=.true.
   integer ,dimension(1:ncpu)::ntot_star_cpu,ntot_star_all
-  character(LEN=80)::filename,filedir,fileloc,filedirini
+  character(LEN=255)::filename,filedir,fileloc,filedirini
   character(LEN=5)::nchar,ncharcpu
   logical::file_exist
 #ifdef SOLVERmhd

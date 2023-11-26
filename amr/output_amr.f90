@@ -20,7 +20,7 @@ subroutine dump_all
 #endif
   character::nml_char
   character(LEN=5)::nchar,ncharcpu
-  character(LEN=80)::filename,filename_desc,filedir
+  character(LEN=255)::filename,filename_desc,filedir
   integer::ierr
 
   if(nstep_coarse==nstep_coarse_old.and.nstep_coarse>0)return
@@ -215,14 +215,14 @@ subroutine backup_amr(filename)
 #ifndef WITHOUTMPI
   integer::dummy_io,info2
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::nx_loc,ny_loc,nz_loc,ilun
   integer::ilevel,ibound,ncache,istart,i,igrid,idim,ind,iskip
   integer,allocatable,dimension(:)::ind_grid,iig
   real(dp),allocatable,dimension(:)::xdp
   real(dp),dimension(1:3)::skip_loc
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v
   real(dp)::scale
@@ -412,12 +412,12 @@ subroutine output_info(filename)
   use pm_commons
   use mpi_mod
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::nx_loc,ny_loc,nz_loc,ilun,icpu,idom,ierr
   real(dp)::scale
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 
   if(verbose)write(*,*)'Entering output_info'
 
@@ -500,10 +500,10 @@ subroutine output_header(filename)
 #ifndef WITHOUTMPI
   integer::info
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::ilun
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 #ifdef LONGINT
   integer(i8b)::npart_family_loc(-5:5), npart_family(-5:5), npart_all_loc, npart_all
 #else
@@ -586,7 +586,7 @@ subroutine savegadget(filename)
   integer::info
   integer(i8b)::npart_loc
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   TYPE(gadgetheadertype)::header
   real,allocatable,dimension(:,:)::pos,vel
   integer(i8b),allocatable,dimension(:)::ids
@@ -671,12 +671,12 @@ subroutine create_output_dirs(filedir)
   use amr_commons
   use file_module, ONLY: mkdir
   implicit none
-  character(LEN=80), intent(in):: filedir
+  character(LEN=255), intent(in):: filedir
 #ifdef NOSYSTEM
-  character(LEN=80)::filedirini
+  character(LEN=255)::filedirini
   integer :: info_sys
 #else
-  character(LEN=80)::filecmd
+  character(LEN=255)::filecmd
   integer :: ierr
 #endif
 #ifndef WITHOUTMPI

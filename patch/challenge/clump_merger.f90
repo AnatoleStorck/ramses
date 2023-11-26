@@ -486,7 +486,7 @@ subroutine write_clump_properties(to_file)
   real(dp),dimension(1:npeaks_tot)::peakd
   integer,dimension(1:npeaks_tot)::ind_sort
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v
-  character(LEN=80)::fileloc1,fileloc2
+  character(LEN=255)::fileloc1,fileloc2
 
   call units(scale_l,scale_t,scale_d,scale_v,scale_nH,scale_T2)
 
@@ -1313,7 +1313,7 @@ subroutine write_clump_map(ntest)
   character(LEN=5)::myidstring,nchar,ncharcpu
   integer,parameter::tag=1101
   integer::dummy_io
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 
   nx_loc=(icoarse_max-icoarse_min+1)
   scale=boxlen/dble(nx_loc)

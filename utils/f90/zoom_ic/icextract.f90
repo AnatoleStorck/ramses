@@ -21,8 +21,8 @@ program icextract
   integer::i,j,k,i_file
   real::x1o,x2o,x3o,x1o_cube,x2o_cube,x3o_cube,dx,astart,omegam,omegav,h0
   real,dimension(:,:),allocatable::f,f_cube
-  character*80::input,output
-  character*80,dimension(4)::filename
+  character*255::input,output
+  character*255,dimension(4)::filename
   logical::ok
 
   narg = command_argument_count()

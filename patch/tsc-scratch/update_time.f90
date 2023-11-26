@@ -92,7 +92,7 @@ subroutine output_timer(write_file, filename)
   integer      :: i
   logical      :: id_is_one, write_file
   integer      :: ilun=11
-  character(LEN=80)::filename, fileloc !Optional for writing timing info
+  character(LEN=255)::filename, fileloc !Optional for writing timing info
 !-----------------------------------------------------------------------
   id_is_one = myid == 1
   total = 1e-9
@@ -214,7 +214,7 @@ subroutine update_time(ilevel)
   integer::i,itest
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   ! Added for new output file with energy data.
-  character(LEN=80)::filename,fileloc
+  character(LEN=255)::filename,fileloc
   character(LEN=5)::nchar
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

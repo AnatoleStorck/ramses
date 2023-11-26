@@ -12,7 +12,7 @@ subroutine init_hydro
   real(dp),dimension(:),allocatable::xx
   real(dp)::gamma2
   real(dp)::d,u,v,w,A,B,C,e
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
 
   integer,parameter::tag=1107

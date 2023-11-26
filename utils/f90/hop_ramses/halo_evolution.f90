@@ -13,7 +13,7 @@ program halo_evolution
   real(KIND=8),dimension(:),allocatable::m,age
   integer,dimension(:),allocatable::id,id_new,id_new_2,ind_new_1,ind_new_2,ind_new_3
   character(LEN=5)::nstring,ncharcpu,noutput
-  character(LEN=80)::directory,file_groupe_in,hop_name
+  character(LEN=255)::directory,file_groupe_in,hop_name
   character(LEN=128)::nomfich,repository
   logical::ok
   integer::verbose=0

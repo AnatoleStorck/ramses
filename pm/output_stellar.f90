@@ -3,7 +3,7 @@ subroutine output_stellar_csv(filename)
   use pm_commons
   use sink_feedback_parameters
   implicit none
-  character(LEN=80)::filename,fileloc
+  character(LEN=255)::filename,fileloc
   integer::istellar
 
   if(verbose)write(*,*)'Entering output_stellar_csv'

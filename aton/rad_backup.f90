@@ -4,13 +4,13 @@ subroutine backup_radiation(filename)
   use radiation_commons, ONLY: Erad
   use mpi_mod
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::i,ivar,ncache,ind,ilevel,igrid,iskip,ilun,istart,ibound,nvar_rad
   integer,allocatable,dimension(:)::ind_grid
   real(dp),allocatable,dimension(:)::xdp
   character(LEN=5)::nchar
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   integer,parameter::tag=1124
   integer::dummy_io,info2
 
@@ -92,10 +92,10 @@ subroutine store_radiation(filename)
   use mpi_mod
   implicit none
 
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   integer::ilun
   character(LEN=5)::nchar
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   integer,parameter::tag=1125
   integer::dummy_io,info2
 
@@ -140,7 +140,7 @@ subroutine restore_radiation
 
   integer::ilun
   character(LEN=5)::nchar,ncharcpu
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   integer::x,y,z
   integer,parameter::tag=1126
   integer::dummy_io,info2

@@ -13,8 +13,8 @@ subroutine init_sink
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v
   integer::isink, nsinkold
   logical::eof,ic_sink=.false.
-  character(LEN=80)::filename
-  character(LEN=80)::fileloc
+  character(LEN=255)::filename
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar,ncharcpu
 
   integer::sid,slevel

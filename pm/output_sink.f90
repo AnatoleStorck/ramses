@@ -2,7 +2,7 @@ subroutine output_sink_csv(filename)
   use amr_commons
   use pm_commons
   implicit none
-  character(LEN=80)::filename,fileloc
+  character(LEN=255)::filename,fileloc
 
   integer::isink
 

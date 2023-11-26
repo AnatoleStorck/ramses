@@ -10,7 +10,7 @@ subroutine init_stellar
 #endif
     integer:: ilun
     logical::eof=.false.
-    character(len=80):: fileloc
+    character(LEN=255):: fileloc
     character(len=5):: nchar, ncharcpu
     integer:: idim
     integer::sid

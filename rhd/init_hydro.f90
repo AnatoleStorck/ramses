@@ -9,7 +9,7 @@ subroutine init_hydro
   integer ,dimension(:),allocatable::ind_grid
   real(dp),dimension(:),allocatable::rr,vx,vy,vz,pp,xx
   real(dp)::gamma2
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
   real(dp)::lor,tau,h
 

@@ -31,7 +31,7 @@ module amr_commons
   CHARACTER(LEN=80)::gitrepo,gitbranch,githash
 
   ! Save namelist filename
-  CHARACTER(LEN=80)::namelist_file
+  CHARACTER(LEN=255)::namelist_file
 
   ! MPI variables
   integer::ncpu,ndomain,myid,overload=1

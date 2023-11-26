@@ -9,10 +9,10 @@ subroutine backup_part(filename, filename_desc)
   integer :: dummy_io, info2
   integer, parameter :: tag = 1122
 #endif
-  character(len=80) :: filename, filename_desc
+  character(LEN=255) :: filename, filename_desc
 
   integer :: i, idim, unit_out, ipart
-  character(len=80) :: fileloc
+  character(LEN=255) :: fileloc
   character(len=5) :: nchar
   real(dp), allocatable, dimension(:) :: xdp
   integer(i8b), allocatable, dimension(:) :: ii8

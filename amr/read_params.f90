@@ -10,7 +10,7 @@ subroutine read_params
   ! Local variables
   !--------------------------------------------------
   integer::i,narg,levelmax
-  character(LEN=80)::infile, info_file
+  character(LEN=255)::infile, info_file
   character(LEN=80)::cmdarg
   character(LEN=5)::nchar
   integer(kind=8)::ngridtot=0
@@ -138,7 +138,7 @@ subroutine read_params
   CALL getarg(1,infile)
   endif
 #ifndef WITHOUTMPI
-  call MPI_BCAST(infile,80,MPI_CHARACTER,0,MPI_COMM_WORLD,ierr)
+  call MPI_BCAST(infile,255,MPI_CHARACTER,0,MPI_COMM_WORLD,ierr)
 #endif
 
   !-------------------------------------------------

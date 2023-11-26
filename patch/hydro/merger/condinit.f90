@@ -77,7 +77,7 @@ subroutine read_merger_params
   use mpi_mod
   implicit none
   logical::nml_ok=.true.
-  character(LEN=80)::infile
+  character(LEN=255)::infile
 
   !--------------------------------------------------
   ! Local variables

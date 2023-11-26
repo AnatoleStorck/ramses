@@ -30,7 +30,7 @@ subroutine gas_ana
   character(LEN=5)::nchar,ncharcpu
   real(kind=8),allocatable,dimension(:)::hist,hist_tot
   real(kind=8)::m,m_tot,v_rms,v_rms_tot
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 
   if(.not. hydro)return
 

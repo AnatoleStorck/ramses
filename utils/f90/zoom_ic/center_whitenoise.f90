@@ -18,7 +18,7 @@ program center_whitenoise
   integer::i,j,k,i_file,narg,iargc,iseed
   real::x1o,x2o,x3o,dx,astart,omegam,omegav,h0
   real,dimension(:,:),allocatable::f1,f2
-  character*80::input,output
+  character*255::input,output
 
   narg = command_argument_count()
   IF(narg .NE. 2)THEN

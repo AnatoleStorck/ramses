@@ -158,7 +158,7 @@ subroutine init_file
   !------------------------------------------------------
   integer:: ilevel,nx_loc,ny_loc,nz_loc
   real(sp)::dxini0,xoff10,xoff20,xoff30,astart0,omega_m0,omega_l0,h00
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   logical::ok
 
   if(verbose)write(*,*)'Entering init_file'
@@ -243,7 +243,7 @@ subroutine init_cosmo
   !------------------------------------------------------
   integer:: ilevel
   real(sp)::dxini0,xoff10,xoff20,xoff30,astart0,omega_m0,omega_l0,h00
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   character(LEN=5)::nchar
   logical::ok
   TYPE(gadgetheadertype) :: gadgetheader

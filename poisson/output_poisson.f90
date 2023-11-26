@@ -3,13 +3,13 @@ subroutine backup_poisson(filename)
   use poisson_commons
   use mpi_mod
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::i,ivar,ncache,ind,ilevel,igrid,iskip,ilun,istart,ibound
   integer,allocatable,dimension(:)::ind_grid
   real(dp),allocatable,dimension(:)::xdp
   character(LEN=5)::nchar
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
 
 #ifndef WITHOUTMPI
   integer,parameter::tag=1123

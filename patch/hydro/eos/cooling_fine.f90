@@ -41,7 +41,7 @@ end subroutine cooling_fine
 subroutine read_eos_params(eos_type, nH_H_cc_threshold)
   use amr_commons
   implicit none
-  character(LEN=80)::infile
+  character(LEN=255)::infile
   character(len=32)::eos_type
   real(dp)::nH_H_cc_threshold
 

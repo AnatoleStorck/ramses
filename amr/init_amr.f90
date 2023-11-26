@@ -21,7 +21,7 @@ subroutine init_amr
   logical::ok
   real(dp)::dx_loc,scale
   character(LEN=128)::ordering2
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar,ncharcpu
   integer,parameter::tag=1100
 #ifndef WITHOUTMPI

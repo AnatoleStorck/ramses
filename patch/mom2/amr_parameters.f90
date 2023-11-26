@@ -293,7 +293,7 @@ module amr_parameters
 
   ! Initial condition files for each level
   logical::multiple=.false.
-  character(LEN=80),dimension(1:MAXLEVEL)::initfile=' '
+  character(LEN=255),dimension(1:MAXLEVEL)::initfile=' '
   character(LEN=20)::filetype='ascii'
 
   ! Initial condition regions parameters

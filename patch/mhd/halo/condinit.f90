@@ -27,7 +27,7 @@ subroutine read_halo_params! {{{
   include 'mpif.h'
 #endif
   logical::nml_ok=.true.
-  character(LEN=80)::infile
+  character(LEN=255)::infile
 
   !--------------------------------------------------
   ! Local variables

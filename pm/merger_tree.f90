@@ -1729,7 +1729,7 @@ subroutine make_trees()
     !============================================
 
       implicit none
-      character(len=80)  :: fileloc
+      character(LEN=255)  :: fileloc
       character(len=5)   :: dir, idnr
 
       integer :: iprog, i, ipeak, ind
@@ -1855,7 +1855,7 @@ subroutine read_progenitor_data()
   integer           :: nprogs_to_read, np
   integer           :: nprogdatalen, partcount_to_read, partdatalen
   integer           :: iprog, i
-  character(LEN=80) :: fileloc
+  character(LEN=255) :: fileloc
   character(LEN=5)  :: output_to_string, id_to_string
   logical           :: exists
 
@@ -2239,7 +2239,7 @@ subroutine read_progenitor_data()
   integer           :: prog_read, prog_read_local, startind, tracer_free
   integer           :: progcount_to_read, np, progpartcount_to_read
   integer           :: iprog, i
-  character(LEN=80) :: fileloc
+  character(LEN=255) :: fileloc
   character(LEN=5)  :: output_to_string
   logical           :: exists
 
@@ -2571,7 +2571,7 @@ subroutine write_trees()
 #endif
 
   character(len=5)             :: dir, idnr
-  character(len=80)            :: fileloc
+  character(LEN=255)            :: fileloc
   integer                      :: ipeak, iprog
   real(dp)                     :: npartclump, clumpmass
   logical, dimension(1:nprogs) :: printed
@@ -2700,7 +2700,7 @@ subroutine write_progenitor_data()
   real(dp), allocatable, dimension(:)     :: mpeaklist ! mass at accretion for subhalos
   real(dp), allocatable, dimension(:)     :: pastprogmpeaklist ! stellar masses of past merged progs
 
-  character(LEN=80) :: fileloc
+  character(LEN=255) :: fileloc
   character(LEN=5)  :: output_to_string, id_to_string 
   integer           :: ipeak, ipart, pind, startind, first_bound, partcount
   integer           :: ihalo, haloid, npastprogs_all
@@ -3109,7 +3109,7 @@ subroutine make_galaxies()
   implicit none
   integer               :: ipeak, mbpart, iprog
   real(dp)              :: m_to_use, alpha, gam, delta, xi, loge, logM1, scale_m
-  character(LEN=80)     :: fileloc
+  character(LEN=255)     :: fileloc
   character(LEN=5)      :: output_to_string, id_to_string 
 
 #ifndef WITHOUTMPI

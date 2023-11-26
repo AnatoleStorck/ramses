@@ -68,7 +68,7 @@ subroutine read_params
   ! Local variables
   !--------------------------------------------------
   integer::i,narg,levelmax
-  character(LEN=80)::infile, info_file
+  character(LEN=255)::infile, info_file
   character(LEN=80)::cmdarg
   character(LEN=5)::nchar
   integer(kind=8)::ngridtot=0

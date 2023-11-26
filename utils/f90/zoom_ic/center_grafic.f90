@@ -35,8 +35,8 @@ program center_grafic
   integer::i,j,k,i_file,narg,iargc
   real::x1o,x2o,x3o,dx,astart,omegam,omegav,h0
   real,dimension(:,:),allocatable::f1,f2
-  character*80::input,output
-  character*80,dimension(18)::filename
+  character*255::input,output
+  character*255,dimension(18)::filename
   logical::ok,found
 
   narg = command_argument_count()

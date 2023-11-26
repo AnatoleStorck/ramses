@@ -529,7 +529,7 @@ end subroutine amr2cube
 !=======================================================================
 subroutine read_params(filename)
   implicit none
-  character(len=80)::filename
+  character(LEN=255)::filename
 
   if (filename=='') then
      print *, 'usage: amr2cube(filename)'

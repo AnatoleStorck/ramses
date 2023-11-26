@@ -23,7 +23,7 @@ subroutine thermal_feedback(ilevel)
   integer::igrid,jgrid,ipart,jpart,next_part,ivar
   integer::ig,ip,npart1,npart2,icpu,ilun,idim
   integer,dimension(1:nvector),save::ind_grid,ind_part,ind_grid_part
-  character(LEN=80)::filename,filedir,fileloc,filedirini
+  character(LEN=255)::filename,filedir,fileloc,filedirini
   character(LEN=5)::nchar,ncharcpu
   logical::file_exist
   integer,parameter::tag=1120

@@ -17,14 +17,14 @@ subroutine rt_backup_hydro(filename, filename_desc)
 #endif
   character(len=*), intent(in) :: filename, filename_desc
 
-  character(len=80) :: filedir, rt_filename
+  character(LEN=255) :: filedir, rt_filename
 
   integer :: i, ivar, idim, ncache, ind, ilevel, igrid, iskip, istart, ibound
   integer :: unit_out, unit_info
   integer, allocatable, dimension(:) :: ind_grid
   real(dp), allocatable, dimension(:) :: xdp
   character(len=5) :: nchar, ncharcpu
-  character(len=80) :: fileloc
+  character(LEN=255) :: fileloc
 
   logical :: dump_info_flag
   character(len=100) :: field_name

@@ -1872,7 +1872,7 @@ subroutine output_part_clump_id()
   use amr_parameters
   implicit none
   integer,dimension(:),allocatable::clump_ids
-  character(len=80) :: fileloc
+  character(LEN=255) :: fileloc
   character(len=5)  :: nchar,nchar2
 
   ! for looping over test cells and getting particle list

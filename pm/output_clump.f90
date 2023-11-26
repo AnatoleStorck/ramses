@@ -12,7 +12,7 @@ subroutine write_clump_field
   ! This routine writes the clump field to disk as integer AMR field. This AMR
   ! field can be read by the usual postprocessing tools.
   !---------------------------------------------------------------------------
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   integer::i,ncache,ind,ilevel,igrid,iskip,ilun,istart,ibound
   integer, allocatable, dimension(:) :: ind_grid, id_clump
   character(LEN=5)::myidstring,nchar,ncharcpu
@@ -106,8 +106,8 @@ subroutine file_descriptor_clump(filename)
   ! Pretty much a dummy file at the moment since the clump file contains
   ! only one AMR field. However, this might change at some point...
   
-  character(LEN=80)::filename
-  character(LEN=80)::fileloc
+  character(LEN=255)::filename
+  character(LEN=255)::fileloc
   integer::ivar,ilun
 
   if(verbose)write(*,*)'Entering file_descriptor_clump'

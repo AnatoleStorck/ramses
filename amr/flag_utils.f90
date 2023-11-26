@@ -759,7 +759,7 @@ subroutine init_refmap_fine(ilevel)
   real(kind=4),allocatable,dimension(:,:)  ::init_plane
 
   logical::error,ok_file
-  character(LEN=80)::filename
+  character(LEN=255)::filename
   integer,parameter::tag=1103
 
   if(numbtot(1,ilevel)==0)return

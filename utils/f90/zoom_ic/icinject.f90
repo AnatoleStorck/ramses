@@ -7,8 +7,8 @@ program icdegrade
   real::dx,x1o,x2o,x3o,astart,omegam,omegav,h0
   real::hdx,hx1o,hx2o,hx3o
   real,dimension(:,:,:),allocatable::f,f2
-  character*80::input,output
-  character*80,dimension(3)::filename
+  character*255::input,output
+  character*255,dimension(3)::filename
   logical::ok
 
   narg = command_argument_count()

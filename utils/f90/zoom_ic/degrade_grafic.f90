@@ -30,8 +30,8 @@ program degrade_grafic
   integer(kind=4)::np1o2,np2o2,np3o2
   real::dx,dx2,x1o,x2o,x3o,astart,omegam,omegav,h0
   real,dimension(:,:,:),allocatable::f,f2
-  character*80::input,output
-  character*80,dimension(18)::filename
+  character*255::input,output
+  character*255,dimension(18)::filename
   logical::ok
 
   narg = command_argument_count()

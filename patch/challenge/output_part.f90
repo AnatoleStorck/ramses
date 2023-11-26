@@ -5,10 +5,10 @@ subroutine backup_part(filename)
 #ifndef WITHOUTMPI
   include 'mpif.h'
 #endif
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::i,idim,ilun,ipart
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
   real(dp),allocatable,dimension(:)::xdp
   integer ,allocatable,dimension(:)::ii
@@ -212,13 +212,13 @@ subroutine output_sink(filename)
   use amr_commons
   use pm_commons
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::i,idim,ipart,isink
   integer::nx_loc,ny_loc,nz_loc,ilun,icpu,idom
   real(dp)::scale,l_abs,rot_period,dx_min
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v,scale_m
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
 
   if(verbose)write(*,*)'Entering output_sink'
@@ -267,13 +267,13 @@ subroutine output_sink_csv(filename)
   use amr_commons
   use pm_commons
   implicit none
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   integer::i,idim,ipart,isink
   integer::nx_loc,ny_loc,nz_loc,ilun,icpu,idom
   real(dp)::scale
   real(dp)::scale_nH,scale_T2,scale_l,scale_d,scale_t,scale_v,scale_m
-  character(LEN=80)::fileloc
+  character(LEN=255)::fileloc
   character(LEN=5)::nchar
 
   if(verbose)write(*,*)'Entering output_sink_csv'

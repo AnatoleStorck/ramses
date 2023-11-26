@@ -48,7 +48,7 @@ subroutine init_flow_fine(ilevel)
   real(sp),allocatable,dimension(:,:)  ::init_plane
 
   logical::error
-  character(LEN=80)::filename
+  character(LEN=255)::filename
 
   ncache=active(ilevel)%ngrid
   if(ncache==0)return

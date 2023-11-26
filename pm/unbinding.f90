@@ -65,7 +65,7 @@ subroutine unbinding()
   integer                     :: ipeak, ilevel, ipart, i, parent_local_id
   integer                     :: loop_counter=0
   integer, dimension(1:npart) :: clump_ids
-  character(LEN=80)           :: fileloc, filedir
+  character(LEN=255)           :: fileloc, filedir
   character(LEN=5)            :: nchar,nchar2
   logical                     :: is_final_round, check
 
@@ -1184,7 +1184,7 @@ subroutine get_closest_border()
   integer,dimension(1:nvector)    ::  ind_cell
   logical,dimension(1:npeaks_max) ::  check
   
-  ! character(len=80) :: fileloc
+  ! character(LEN=255) :: fileloc
   ! character(len=5)  :: nchar, nchar2
 
   if(verbose)write(*,*) "Entered get_closest_border"

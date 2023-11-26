@@ -8,7 +8,7 @@ subroutine backup_hydro(filename, filename_desc)
   integer :: dummy_io, info2
 #endif
 
-  character(len=80), intent(in) :: filename, filename_desc
+  character(LEN=255), intent(in) :: filename, filename_desc
 
   integer :: i, ivar, ncache, ind, ilevel, igrid, iskip, istart, ibound
   integer :: unit_out, unit_info

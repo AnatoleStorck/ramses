@@ -10,7 +10,7 @@ subroutine read_params
   ! Local variables
   !--------------------------------------------------
   integer::i,narg,iargc,ierr,levelmax
-  character(LEN=80)::infile
+  character(LEN=255)::infile
   integer(kind=8)::ngridtot=0
   integer(kind=8)::nparttot=0
   logical::nml_ok

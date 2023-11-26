@@ -12,7 +12,7 @@ subroutine move_fine(ilevel)
   !----------------------------------------------------------------------
   integer::igrid,jgrid,ipart,jpart,next_part,ig,ip,npart1,icpu,ind,iskip,ivar,i
   integer,dimension(1:nvector),save::ind_grid,ind_part,ind_grid_part
-  character(LEN=80)::filename,fileloc
+  character(LEN=255)::filename,fileloc
   character(LEN=5)::nchar
 
   if(numbtot(1,ilevel)==0)return

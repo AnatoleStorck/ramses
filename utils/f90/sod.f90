@@ -313,7 +313,7 @@ subroutine spherover(x,mp,xsort,isort,nchar,npart,nx,ny,nz,npart_new,ncut,seuil,
   real(kind=8)::dmin,x_tmp,y_tmp,z_tmp,dis_tmp,qqq
   real(kind=8)::Mtotsel
 
-  character*80::nomf
+  character*255::nomf
 
   !  structure = 0
   taillex   = dble(nx)
