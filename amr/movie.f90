@@ -28,12 +28,12 @@ subroutine output_frame()
   integer,parameter::tag=100
 
   character(len=5)::istep_str
-  character(len=100)::moviedir,moviecmd,infofile,sinkfile,filename
+  character(LEN=255)::moviedir,moviecmd,infofile,sinkfile,filename
 #if NENER>0
   integer::irad
 #endif
 #ifdef RT
-  character(len=100)::rt_infofile
+  character(LEN=255)::rt_infofile
 #endif
   integer::ncache,iskip,ngrid,nlevelmax_frame
   integer::idim,ilun,nx_loc,ind,ix,iy,iz

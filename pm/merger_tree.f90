@@ -3119,7 +3119,7 @@ subroutine make_galaxies()
   integer,parameter::tag=1118
 
   character(len=5) :: istep_str
-  character(len=100) :: conedir, conecmd, conefile
+  character(LEN=255) :: conedir, conecmd, conefile
 
   integer::ilun,ipout,npout,npart_out
   character(LEN=5)::nchar
@@ -3950,7 +3950,7 @@ subroutine mtreedebug_filename(namestring, filename)
   !--------------------------------------------------
   use amr_commons, only: myid, ifout
   implicit none
-  character(len=100), intent(out) :: filename
+  character(LEN=255), intent(out) :: filename
   character(len=*), intent(in)    :: namestring
   character(len=5)                :: id_to_string, output_to_string
 

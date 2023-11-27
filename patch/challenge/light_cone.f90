@@ -15,7 +15,7 @@ subroutine output_cone()
   integer,parameter::tag=1112
 
   character(len=5) :: istep_str
-  character(len=100) :: conedir, conecmd, conefile
+  character(LEN=255) :: conedir, conecmd, conefile
 
   integer::ilun,nx_loc,ipout,npout,npart_out
   character(LEN=255)::fileloc

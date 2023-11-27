@@ -53,7 +53,7 @@ subroutine read_params
   !--------------------------------------------------
   integer::i,narg,iargc,ierr,levelmax
   character(LEN=255)::infile
-  character(LEN=80)::cmdarg
+  character(LEN=255)::cmdarg
   integer(kind=8)::ngridtot=0
   integer(kind=8)::nparttot=0
   real(kind=8)::delta_tout=0,tend=0

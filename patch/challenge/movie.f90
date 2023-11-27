@@ -15,8 +15,8 @@ subroutine output_frame()
   integer,parameter::tag=100
 
   character(len=5) :: istep_str
-  character(len=100) :: moviedir, moviecmd, moviefile
-  character(len=100) :: moviefile1,moviefile2,moviefile3
+  character(LEN=255) :: moviedir, moviecmd, moviefile
+  character(LEN=255) :: moviefile1,moviefile2,moviefile3
 
   integer::icell,ncache,iskip,ngrid,nlevelmax_frame
   integer::ilun,nx_loc,ipout,npout,npart_out,ind,ix,iy,iz

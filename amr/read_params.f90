@@ -11,7 +11,7 @@ subroutine read_params
   !--------------------------------------------------
   integer::i,narg,levelmax
   character(LEN=255)::infile, info_file
-  character(LEN=80)::cmdarg
+  character(LEN=255)::cmdarg
   character(LEN=5)::nchar
   integer(kind=8)::ngridtot=0
   integer(kind=8)::nparttot=0
